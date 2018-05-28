@@ -25,20 +25,14 @@ logging.basicConfig(level=logging.INFO, format='%(levelname)s:%(message)s')
 credentials = van_api.ClientCredentialsGrant(API_KEY, API_SECRET)
 api = van_api.API('api.metropublisher.com', credentials)
 
+start_url = '/{}'.format(INSTANCE_ID)
+
 # get list of files
-logging.info("Getting Files")
-result = api.GET('/282/files')
+logging.info("Getting top-level catalog of resources in the instance/site.")
+result = api.GET(start_url)
 pprint(result)
 
-# get file metadata
-url_to_first_file = result['items'][0][0]
-logging.info("Getting Metadata of the first file from %s" % url_to_first_file)
-result = api.GET(url_to_first_file)
+logging.info("Getting top-level list of sections")
+#result = api.GET('/282/sections?fields=title-urlname-url')
+result = api.GET(start_url + '/sections?fields=title-urlname-url')
 pprint(result)
-
-# Download data
-logging.info("Downloading file data to a filename")
-with open('afile', 'wb') as handler:
-    api.GET(result['download_url'], handler)
-    bytes_written = handler.tell()
-logging.info("Downloaded %s bytes" % bytes_written)

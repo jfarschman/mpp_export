@@ -17,8 +17,6 @@ Tools for exporting from Metro Publisher's API.
 ## Nutshell
 This is python for pulling the content from the metropublisher API and Writing
 it out as a .csv.
-`check_csv.py`
-`put_articles.py`.
 
 ## Usage
 
@@ -54,10 +52,29 @@ KeyError: 'APIKEY'
 ```
 
 #### Exporting the content
-`overview.py` - Shows the catalog of resource types and sections
-`export_content_as_csv`
-`export_locations_as_csv`
-`export_sections_as_csv`
+This section list the commands available to GET resources from the API. They are
+briefly described:
+
+`overview.py`             - Shows the catalog of resource types and sections as
+                            json.
+
+`export_content_as_csv`   - Capture all content (articles/reviews) as a csv to
+                            stdout.
+
+`export_events_as_csv`    - Capture all events as a csv to stdout.
+
+`export_files_as_csv`     - Capture all file metadata as a csv to stdout. this
+                            output is used to pull the actual files.
+
+`export_locations_as_csv` - Capture all locations as a csv to stdout.
+
+`export_tag_as_csv`       - Capture all tags as a csv to stdout. Tags are attached
+                            to content to create an association between a author
+                            place, idea. Clicking a tag will bring up a list of
+                            other similarly tagged content.
+
+`export_sections_as_csv`  - Capture sections
+
 
 ## Limitations
 This was tested on Mac OSX only.
