@@ -34,12 +34,12 @@ So, I can check this code it I'm using environment variables and asking python
 to grab these variables at run time. Generate an API key and if you want to mess
 with locations, a geoname_user (http://api.geonames.org/).  The export these on
 the CLI prior to running the commands:
-
+```
 export APIKEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 export APISECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 export APIID=xxx
 export GEONAME_USER=yourusername
-
+```
 If you get an error like the one below you've failed to export your environment
 variables.
 ```
