@@ -42,7 +42,19 @@ export APISECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 export APIID=xxx
 export GEONAME_USER=yourusername
 
+If you get an error like the one below you've failed to export your environment
+variables.
+```
+Traceback (most recent call last):
+  File "./download_one.py", line 18, in <module>
+    API_KEY      = os.environ["APIKEY"]
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/UserDict.py", line 23, in __getitem__
+    raise KeyError(key)
+KeyError: 'APIKEY'
+```
+
 #### Exporting the content
+`overview.py` - Shows the catalog of resource types and sections
 `export_content_as_csv`
 `export_locations_as_csv`
 `export_sections_as_csv`
