@@ -62,28 +62,19 @@ def main():
 
     fields = ['url', 'title']
     start_url = '/{}/files?groups=image&fields={}&rpp=100'.format(INSTANCE_ID, '-'.join(fields))
-    #print url
 
     csv_file = None
     count = 0
+
     for download_url, filename in get_all_items(api, start_url):
         count += 1
         # get full file info
         file = api.GET(download_url)
-        print "-------- file --------------"
-        print file
-        print "-------- download_url --------------"
-        print download_url
-        print filename
-
-        #with open('afile', 'wb') as handler:
-        #    api.GET(result['download_url'], handler)
-        #    bytes_written = handler.tell()
-        #logging.info("Downloaded %s bytes" % bytes_written)
 
         # cast everything to a string
         file = to_csv_value(file)
         if csv_file is None:
+
             # create our csv file writer if none already exists
             fieldnames = sorted(file.keys())
             print filename
@@ -94,7 +85,7 @@ def main():
             csv_file.writerow(headers)
         # write out one line of the CSV
         csv_file.writerow(file)
-    logging.info('Exported {} file'.format(count))
+    logging.info('Exported {} files'.format(count))
     return 0
 
 if __name__ == '__main__':
