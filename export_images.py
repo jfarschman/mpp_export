@@ -13,8 +13,8 @@ import logging
 import van_api
 
 # Configuration
-API_KEY = os.environ["APIKEY"]
-API_SECRET = os.environ["APISECRET"]
+API_KEY     = os.environ["APIKEY"]
+API_SECRET  = os.environ["APISECRET"]
 INSTANCE_ID = os.environ["APIID"]
 
 
@@ -59,7 +59,8 @@ def main():
     api = van_api.API('api.metropublisher.com', credentials)
 
     fields = ['url', 'title']
-    start_url = '/{}/files?groups=image&fields={}&rpp=100'.format(INSTANCE_ID, '-'.join(fields))
+    # page=2&rpp=2'
+    start_url = '/{}/files?groups=image&fields={}&page=1&rpp=100'.format(INSTANCE_ID, '-'.join(fields))
     # print url
 
     csv_file = None

@@ -72,6 +72,7 @@ def main():
     for content_url, content_type in get_all_items(api, start_url):
         count += 1
         # get full content info
+        print content_url
         content = api.GET(content_url)
         # cast everything to a string
         content = to_csv_value(content)
